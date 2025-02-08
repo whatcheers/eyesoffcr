@@ -29,4 +29,29 @@ const observer = new IntersectionObserver((entries) => {
 document.querySelectorAll('section').forEach((section) => {
     section.classList.add('opacity-0', 'transition-opacity', 'duration-1000');
     observer.observe(section);
+});
+
+// Email obfuscation
+const emailParts = {
+    user: 'ZXllc29mZmNy',  // eyesoffcr
+    domain: 'cHJvdG9uLm1l'  // proton.me
+};
+
+function decodeEmailParts() {
+    return atob(emailParts.user) + '@' + atob(emailParts.domain);
+}
+
+// Initialize email links
+document.addEventListener('DOMContentLoaded', function() {
+    const emailLinks = document.querySelectorAll('.contact-email');
+    const decodedEmail = decodeEmailParts();
+    
+    emailLinks.forEach(link => {
+        link.href = `mailto:${decodedEmail}`;
+        if (link.classList.contains('show-email')) {
+            link.textContent = decodedEmail;
+        } else {
+            link.textContent = 'Contact Us';
+        }
+    });
 }); 
