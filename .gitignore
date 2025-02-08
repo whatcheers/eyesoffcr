@@ -60,4 +60,27 @@ Thumbs.db
 .netlify
 
 # Vite
-*.local 
+*.local
+
+# Ignore sensitive files
+view_stats.sh
+*_stats.sh
+
+# Node modules and build
+node_modules/
+dist/
+.cache/
+
+# Environment files
+.env
+.env.*
+
+# Editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS files
+.DS_Store
+Thumbs.db 
